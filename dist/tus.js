@@ -478,9 +478,9 @@ var Upload = function () {
     }
   }, {
     key: "_emitSuccess",
-    value: function _emitSuccess() {
+    value: function _emitSuccess(data) {
       if (typeof this.options.onSuccess === "function") {
-        this.options.onSuccess();
+        this.options.onSuccess(data);
       }
     }
 
@@ -602,6 +602,7 @@ var Upload = function () {
 
       var xhr = (0, _request.newRequest)();
       xhr.open("HEAD", this.url, true);
+      var uploadUrl = this.url;
 
       xhr.onload = function () {
         if (!inStatusCategory(xhr.status, 200)) {
@@ -710,7 +711,7 @@ var Upload = function () {
 
         if (offset == _this4._size) {
           // Yay, finally done :)
-          _this4._emitSuccess();
+          _this4._emitSuccess({ uploadUrl: uploadUrl });
           _this4._source.close();
           return;
         }
