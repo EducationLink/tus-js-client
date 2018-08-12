@@ -372,8 +372,7 @@ var Upload = function () {
       var xhr = (0, _request.newRequest)();
       xhr.open("HEAD", this.url, true);
       
-      console.log(this);
-      var finalUrl = this.url;
+      console.log('This', this);
 
       xhr.onload = function () {
         if (!inStatusCategory(xhr.status, 200)) {
@@ -483,7 +482,7 @@ var Upload = function () {
 
         if (offset == _this4._size) {
           // Yay, finally done :)
-          _this4._emitSuccess({ finalUrl: finalUrl });
+          _this4._emitSuccess();
           _this4._source.close();
           return;
         }
