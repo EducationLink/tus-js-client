@@ -412,10 +412,9 @@ var Upload = function () {
 
         // Upload has already been completed and we do not need to send additional
         // data to the server
-        console.log(xhr);
         if (offset === length) {
           _this3._emitProgress(length, length);
-          _this3._emitSuccess();
+          _this3._emitSuccess(_this.3);
           return;
         }
 
@@ -482,7 +481,7 @@ var Upload = function () {
 
         if (offset == _this4._size) {
           // Yay, finally done :)
-          _this4._emitSuccess();
+          _this4._emitSuccess(_this4);
           _this4._source.close();
           return;
         }
