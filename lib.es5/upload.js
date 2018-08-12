@@ -414,7 +414,7 @@ var Upload = function () {
         // data to the server
         if (offset === length) {
           _this3._emitProgress(length, length);
-          _this3._emitSuccess(_this.3);
+          _this3._emitSuccess(_this3);
           return;
         }
 
