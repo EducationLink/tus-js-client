@@ -372,6 +372,7 @@ var Upload = function () {
       var xhr = (0, _request.newRequest)();
       xhr.open("HEAD", this.url, true);
       
+      console.log(this);
       var finalUrl = this.url;
 
       xhr.onload = function () {
@@ -412,9 +413,10 @@ var Upload = function () {
 
         // Upload has already been completed and we do not need to send additional
         // data to the server
+        console.log(xhr);
         if (offset === length) {
           _this3._emitProgress(length, length);
-          _this3._emitSuccess({ finalUrl: finalUrl });
+          _this3._emitSuccess();
           return;
         }
 
